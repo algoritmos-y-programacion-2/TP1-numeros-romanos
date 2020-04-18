@@ -13,7 +13,7 @@ Instalación
 
 - Instale [MinGw](https://osdn.net/projects/mingw/releases/) o algún compilador de C++ de su preferencia
 - En la consola vaya a la ubicación del proyecto y escriba `g++ main.cpp utils.cpp validaciones.cpp -o deArabesARomanos.exe`
-- Ejecute el archivo deArabesARomanos.exe asegurandose de que exista un archivo "valores.txt" esta en la misma carpeta
+- Ejecute el archivo deArabesARomanos.exe asegurandose de que exista un archivo "valores.txt" en esa misma carpeta
 - Los archivos "romanos.txt" y "log.txt" se crearan en la ubicación actual
 
 
