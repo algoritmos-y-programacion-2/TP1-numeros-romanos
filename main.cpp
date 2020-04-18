@@ -34,7 +34,7 @@ int main() {
                     break;
             }
         }
-    } else cout << "No se encontró el archivo 'valores.txt' << endl;
+    } else cout << "No se encontró el archivo 'valores.txt'" << endl;
 
     archivoConvertidos.close();
     archivoAConvertir.close();
