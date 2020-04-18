@@ -1,19 +1,20 @@
-TP - De Árabes a Romanos
+TP - De Árabes a Romanos - Juárez 1C2020
 ================
-
-Lee el archivo "valores.txt" que contiene una serie de números enteros, y genera un nuevo archivo llamado "romanos.txt" con dichos valores en sistema de numeracion romana.
-En el caso de que la linea leida no se pueda convertir, se envia a un archivo "log.txt" con una breve descripción del error.
-Hecho con C++.
 
 Trabajo práctico para la facultad: Algoritmos y Programacion II - Cátedra Juárez 1C2020
 
+Lee el archivo "valores.txt" que contiene una serie de números enteros, y genera un nuevo archivo llamado "romanos.txt" con dichos valores en sistema de numeracion romana.
+En el caso de que la linea leida no se pueda convertir, se envia a un archivo "log.txt" con una breve descripción del error.
+
+Hecho con C++.
 
 Instalación
 ------------
 
-- No se requiere instalación:
-    - Ejecute el archivo TP1.exe asegurandose de que "valores.txt" este en la misma carpeta
-    - Los archivos "romanos.txt" y "log.txt" se crearan en la ubicación en la que esté TP1.exe
+- Instale [MinGw](https://osdn.net/projects/mingw/releases/) o algún compilador de C++ de su preferencia
+- En la consola vaya a la ubicación del proyecto y escriba `g++ main.cpp utils.cpp validaciones.cpp -o deArabesARomanos.exe`
+- Ejecute el archivo deArabesARomanos.exe asegurandose de que exista un archivo "valores.txt" este en la misma carpeta
+- Los archivos "romanos.txt" y "log.txt" se crearan en la ubicación actual
 
 
 Contribución
