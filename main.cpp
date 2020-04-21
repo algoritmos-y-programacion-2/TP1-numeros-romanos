@@ -11,47 +11,41 @@ int main() {
 
     mostrarLogo();
 
-    ifstream archivoAConvertir(ARCHIVO_ENTEROS);
+    ifstream archArabes(ARCHIVO_ENTEROS);
 
-    string stringNumeroEntero, numeroRomano;
-    int numeroEnteroValidado;
+    if(!archArabes.fail()) {
 
-    if(!archivoAConvertir.fail()) {
+        string stringNumeroEntero, numeroRomano;
+        int numEnteroValidado;
+        ofstream archRomanos(ARCHIVO_ROMANOS);
+        ofstream archLog(ARCHIVO_LOG);
 
-        ofstream archivoConvertidos(ARCHIVO_ROMANOS);
-        ofstream archivoLog(ARCHIVO_LOG);
+        while(archArabes >> stringNumeroEntero) {
 
-        while(archivoAConvertir >> stringNumeroEntero) {
+            numEnteroValidado = validarNumero(stringNumeroEntero);
 
-            numeroEnteroValidado = validarNumero(stringNumeroEntero);
-
-            switch (numeroEnteroValidado){
+            switch (numEnteroValidado){
 
                 case ERROR_RANGO:
-                    escribirEnArchivo(&archivoLog, stringNumeroEntero+" valor fuera de rango");
+                    escribirEnArchivo(&archLog, stringNumeroEntero+" valor fuera de rango");
                     break;
 
                 case ERROR_ENTERO:
-                    escribirEnArchivo(&archivoLog, stringNumeroEntero+" valor erroneo");
+                    escribirEnArchivo(&archLog, stringNumeroEntero+" valor erroneo");
                     break;
 
                 default:
-                    numeroRomano = convertirEnteroARomano(numeroEnteroValidado);
-                    escribirEnArchivo(&archivoConvertidos, numeroRomano);
+                    numeroRomano = convertirEnteroARomano(numEnteroValidado);
+                    escribirEnArchivo(&archRomanos, numeroRomano);
                     break;
             }
         }
-        cout << endl << "Los datos se han exportado de manera satisfactoria a 'romanos.txt' y 'log.txt.'" << endl;
-        _sleep(2500);
-        archivoLog.close();
-        archivoConvertidos.close();
+        mostrarMensajeConDelay(MENSAJE_EXITOSO, 2000);
+        archLog.close();
+        archRomanos.close();
     }
-    else {
-        cout << "No se encontro el archivo 'valores.txt'." << endl <<
-                "Por favor asegurese de que 'valores.txt' se encuentre en la misma carpeta "
-                "que el ejecutable 'trabajoPractico1.exe' " << endl;
-        _sleep(7500);
-    }
-    archivoAConvertir.close();
+    else mostrarMensajeConDelay(MENSAJE_ERROR, 7000);
+
+    archArabes.close();
     return 0;
 }
