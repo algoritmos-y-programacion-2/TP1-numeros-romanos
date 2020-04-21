@@ -5,10 +5,8 @@
 #include "utils.h"
 
 void mostrarLogo() {
-    string logo;
-    logo = logoSoldadoRomano();
-    _sleep(500);
-    cout << logo;
+    _sleep(200);
+    cout << logoSoldadoRomano();
     _sleep(1500);
     cout << endl << "Cargando datos..." << endl;
     _sleep(350);
@@ -33,7 +31,6 @@ string convertirEnteroARomano(int entero) {
         while (cociente--) {
             romano += arrayRomanos[ultPosicion];
         }
-
         ultPosicion--;
     }
     return romano;

@@ -47,8 +47,10 @@ int main() {
         archivoConvertidos.close();
     }
     else {
-        cout << "No se encontro el archivo 'valores.txt'" << endl;
-        _sleep(2500);
+        cout << "No se encontro el archivo 'valores.txt'." << endl <<
+                "Por favor asegurese de que 'valores.txt' se encuentre en la misma carpeta "
+                "que el ejecutable 'trabajoPractico1.exe' " << endl;
+        _sleep(7500);
     }
     archivoAConvertir.close();
     return 0;
