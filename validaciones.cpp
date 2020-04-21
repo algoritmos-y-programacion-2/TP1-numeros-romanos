@@ -2,6 +2,7 @@
 // Created by Valentina on 18/4/2020.
 //
 
+#include <iostream>
 #include "validaciones.h"
 
 int validarEntero(string n) {
@@ -44,6 +45,14 @@ int validarNumero(string n) {
             numeroValidado = ERROR_RANGO;
         }
     }
-
     return numeroValidado;
+}
+
+bool deseaContinuar() {
+    char c;
+    cout << "Bienvenide, si desea convertir los numeros del archivo 'valores.txt' a romanos, presione 'Enter'. "
+            "De lo contrario, ingrese cualquier otro valor" << endl;
+    cin >> c;
+    cout << endl;
+    return c == '\n';
 }

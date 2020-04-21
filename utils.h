@@ -6,12 +6,19 @@
 #define TRABAJOPRACTICO1_UTILS_H
 
 #include <fstream>
+#include <iostream>
+#include <chrono>
 
 using namespace std;
 
 const string ARCHIVO_ENTEROS = "valores.txt";
 const string ARCHIVO_ROMANOS = "romanos.txt";
 const string ARCHIVO_LOG = "log.txt";
+
+void mostrarLogo();
+/*
+ * Muestra el logo por un determinado tiempo (utilizando _sleep() de la libreria <chrono>)
+ */
 
 void escribirEnArchivo(ofstream* archivo, string frase);
 /*
@@ -27,3 +34,8 @@ string convertirEnteroARomano(int entero);
  */
 
 #endif //TRABAJOPRACTICO1_UTILS_H
+
+string logoSoldadoRomano();
+/*
+ * Devuelve el logo
+ */

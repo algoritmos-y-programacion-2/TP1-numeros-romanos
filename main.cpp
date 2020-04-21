@@ -1,23 +1,28 @@
-#include <iostream>
+/*
+ * 75.41/95.15: Algoritmos y Programacion II - Catedra Juarez - 1°C 2020
+ * Trabajo Practico Individual N1: De los arabes a los romanos
+ * Hecho por Valentina Varela Rodriguez - 105374
+ */
+
 #include "validaciones.h"
 #include "utils.h"
 
 int main() {
 
-    cout << endl << "Cargando datos..." << endl;
+    mostrarLogo();
 
     ifstream archivoAConvertir(ARCHIVO_ENTEROS);
-    ofstream archivoConvertidos(ARCHIVO_ROMANOS);
-    ofstream archivoLog(ARCHIVO_LOG);
 
-    string stringNumeroEntero;
+    string stringNumeroEntero, numeroRomano;
+    int numeroEnteroValidado;
 
     if(!archivoAConvertir.fail()) {
 
-        while(!archivoAConvertir.eof()) {
+        ofstream archivoConvertidos(ARCHIVO_ROMANOS);
+        ofstream archivoLog(ARCHIVO_LOG);
 
-            int numeroEnteroValidado;
-            archivoAConvertir >> stringNumeroEntero;
+        while(archivoAConvertir >> stringNumeroEntero) {
+
             numeroEnteroValidado = validarNumero(stringNumeroEntero);
 
             switch (numeroEnteroValidado){
@@ -25,21 +30,26 @@ int main() {
                 case ERROR_RANGO:
                     escribirEnArchivo(&archivoLog, stringNumeroEntero+" valor fuera de rango");
                     break;
+
                 case ERROR_ENTERO:
                     escribirEnArchivo(&archivoLog, stringNumeroEntero+" valor erroneo");
                     break;
+
                 default:
-                    string numeroRomano = convertirEnteroARomano(numeroEnteroValidado);
+                    numeroRomano = convertirEnteroARomano(numeroEnteroValidado);
                     escribirEnArchivo(&archivoConvertidos, numeroRomano);
                     break;
             }
         }
-    } else cout << "No se encontró el archivo 'valores.txt'" << endl;
-
-    archivoConvertidos.close();
+        cout << endl << "Los datos se han exportado de manera satisfactoria a 'romanos.txt' y 'log.txt.'" << endl;
+        _sleep(2500);
+        archivoLog.close();
+        archivoConvertidos.close();
+    }
+    else {
+        cout << "No se encontro el archivo 'valores.txt'" << endl;
+        _sleep(2500);
+    }
     archivoAConvertir.close();
-    archivoLog.close();
-    cout << endl << "Los datos se han exportado de manera satisfactoria a romanos.txt y log.txt." << endl;
-
     return 0;
 }

@@ -1,7 +1,7 @@
-TP - De Árabes a Romanos - Juárez 1C2020
+75.41/95.15: Algoritmos y Programacion II - Catedra Juarez - 1°C 2020
 ================
-
-Trabajo práctico para la facultad: Algoritmos y Programacion II - Cátedra Juárez 1C2020
+Trabajo Practico Individual N1: De los arabes a los romanos
+------------
 
 Lee el archivo "valores.txt" que contiene una serie de números enteros, y genera un nuevo archivo llamado "romanos.txt" con dichos valores en sistema de numeracion romana.
 En el caso de que la linea leida no se pueda convertir, se envia a un archivo "log.txt" con una breve descripción del error.
