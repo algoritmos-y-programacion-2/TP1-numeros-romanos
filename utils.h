@@ -10,18 +10,6 @@
 
 using namespace std;
 
-void escribirEnArchivo(ofstream* archivo, string frase);
-/*
- * PRE: El archivo debe estar abierto correctamente
- * POST: Escribe la frase en el archivo
- */
-
-string convertirEnteroARomano(int entero);
-/*
- * PRE: -
- * POST: Devuelve el numero recibido en sistema romano
- */
-
 void guardarNumero(ofstream* archRomanos, ofstream* archLog, int numero, string strNumeroEntero);
 /*
  * PRE: Los archivos deben estar abiertos correctamente

@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/main.cpp
-validaciones.h
-C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/validaciones.h
-utils.h
-C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/utils.h
-
 C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/utils.cpp
 utils.h
 C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/utils.h
@@ -20,11 +14,5 @@ C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion 
 fstream
 -
 iostream
--
-
-C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/validaciones.h
-sstream
--
-algorithm
 -
 

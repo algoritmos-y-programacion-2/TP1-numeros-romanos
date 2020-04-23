@@ -3,6 +3,8 @@
 //
 
 #include "validaciones.h"
+#include <regex>
+#include <cstdlib>
 
 const int ERROR_ENTERO = -1;
 const int ERROR_RANGO = -2;
@@ -11,20 +13,21 @@ bool validarRango(int n) {
     return ((n > 0) && (n < 3001));
 }
 
-int validarEntero(string n) {
+int validarEnteroRegex(string num) {
+
     int esEntero;
+    regex entero("^(\\+|-)?[[:digit:]]+");
 
-    // Verifica que desde el segundo caracter hasta el ultimo sean todos numeros
-    if (all_of(n.begin()+1, n.end(), ::isdigit)){
+    /* Viendo de a partes la expresion regular: ^(\+|-)?[[:digit:]]+
+     * ^ indica que la siguiente coincidencia tiene que buscarse al inicio
+     * (\+|-) verifica si es un '+' o un '-'
+     * ? indica que la coincidencia es opcional (en este caso puede o no estar el '+'/'-')
+     * [[:digit:]] verifica si el caracter es un numero [0-9]
+     * + lo hace tantas veces como sea posible en el string
+     */
 
-        // Verifica que el primer caracter sea un "+", un "-" o un numero
-        if ((n[0] == '+') || (n[0] == '-') ||(isdigit(n[0]))) {
-
-            // Si se cumplen ambas, es un numero (positivo o negativo) por lo tanto se hace el casteo
-            stringstream ss(n);
-            ss >> esEntero;
-
-        } else esEntero = ERROR_ENTERO;
+    if (regex_match(num, entero)) {
+        esEntero = atoi(num.c_str());
     } else esEntero = ERROR_ENTERO;
 
     return esEntero;
@@ -32,7 +35,7 @@ int validarEntero(string n) {
 
 int validarNumero(string n) {
 
-    int numeroValidado = validarEntero(n);
+    int numeroValidado = validarEnteroRegex(n);
 
     if (numeroValidado != ERROR_ENTERO) {
         if (!validarRango(numeroValidado)) {

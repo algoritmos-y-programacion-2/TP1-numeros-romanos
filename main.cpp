@@ -2,35 +2,37 @@
  * 75.41/95.15: Algoritmos y Programacion II - Catedra Juarez - 1°C 2020
  * Trabajo Practico Individual N1: De los arabes a los romanos
  * Hecho por Valentina Varela Rodriguez - 105374
- *
- * Antes de ejecutar, asegurarse que el archivo 'valores.txt'se encuentre en el mismo
- * directorio que main.cpp utils.cpp y validaciones.cpp
  */
 
 #include "validaciones.h"
 #include "utils.h"
 
-const string MENSAJE_EXITOSO = "Los datos se han exportado de manera "
-                               "satisfactoria a 'romanos.txt' y 'log.txt.'";
-
-const string MENSAJE_ERROR = "No se encontro el archivo 'valores.txt'.\n"
-                             "Por favor asegurese de que 'valores.txt' "
-                             "se encuentre en el mismo directorio que el ejecutable.";
-
-const string ARCHIVO_ENTEROS = "valores.txt";
 const string ARCHIVO_ROMANOS = "romanos.txt";
 const string ARCHIVO_LOG = "log.txt";
 
-int main() {
+int main(int argc, char* argv[]) {
+    string archivo_enteros = "valores.txt";
 
+    if (argc == 2) {
+        archivo_enteros = argv[1];
+    }
+    else if (argc > 2) {
+        string argumentos;
+        for (int i = 1; i < argc; i++){
+            argumentos += argv[i];
+            argumentos += " ";
+        }
+        cout << "\nEl nombre del archivo '"<< argumentos << "' no es valido. Recorda que si el nombre tiene espacios,"
+                                                        " debe que estar todo entre comillas." << endl;
+        cout << "Se utilizara 'valores.txt' como nombre del archivo " << endl;
+    }
     mostrarLogo();
-    ifstream archArabes(ARCHIVO_ENTEROS);
+    ifstream archArabes(archivo_enteros);
 
     if(!archArabes.fail()) {
 
         ofstream archRomanos(ARCHIVO_ROMANOS);
         ofstream archLog(ARCHIVO_LOG);
-
         string strNumeroEntero;
         int numEnteroValidado;
 
@@ -39,11 +41,12 @@ int main() {
             guardarNumero(&archRomanos, &archLog, numEnteroValidado, strNumeroEntero);
         }
 
-        cout << MENSAJE_EXITOSO << endl;
+        cout << "Los datos se han exportado de manera satisfactoria a 'romanos.txt' y 'log.txt.'" << endl;
         archRomanos.close();
         archLog.close();
 
-    } else cout << MENSAJE_ERROR << endl;
+    } else cout << "No se encontro el archivo '" << archivo_enteros << "'.\nPor favor asegurese de que "
+                   "se encuentre en el mismo directorio que el ejecutable.";
 
     archArabes.close();
     return 0;
