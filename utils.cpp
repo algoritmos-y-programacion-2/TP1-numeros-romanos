@@ -4,18 +4,8 @@
 
 #include "utils.h"
 
-void mostrarLogo() {
-    _sleep(200);
-    cout << logoSoldadoRomano();
-    _sleep(1500);
-    cout << endl << "Cargando datos..." << endl;
-    _sleep(300);
-}
-
-void mostrarMensajeConDelay(string mensaje, int delayMS) {
-    cout << mensaje;
-    _sleep(delayMS);
-}
+const int ERROR_ENTERO = -1;
+const int ERROR_RANGO = -2;
 
 void escribirEnArchivo(ofstream* archivo, string frase) {
     *archivo << frase << endl;
@@ -41,59 +31,74 @@ string convertirEnteroARomano(int entero) {
     return romano;
 }
 
-string logoSoldadoRomano(){
-    return "                                                                                                        \n"
-           "                                                                                                        \n"
-           "                                                                                                        \n"
-           "                                            -//::--...   ....__                                         \n"
-           "                                   .:+syy:  +yyyyyyyyyy  yyyyy+//:-..                                   \n"
-           "                                -/yyyyyyyy: yyyyyyyyyyyy-yyyyyyyyyyyy:-/:-.                             \n"
-           "                            .y  yyyyyyyyyyy/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy+`./:.                       \n"
-           "                          .yyyy /syyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy:.                   \n"
-           "                        -+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy-`                 \n"
-           "                       `+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy:`                    \n"
-           "                     /yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.`                      \n"
-           "                    yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.`                        \n"
-           "                   yyyyyyyyyyyyyyyyyyyyyyyy++//::::///+yyyyyyyyyyyyyyyyyyyyy:`                          \n"
-           "                   yyyyyyyyyyyyyyyyyyyy                        yyyyyyyyyyy+.                            \n"
-           "                  yyyyyyyyyyyyyyyyyy/   mmmMMMMMMMMMMMMNNNNmdys     yyyyy:.                             \n"
-           "                 yyyyyyyyyyyyyyyyy   mmMMMMMMMMMMMMMMMMMMMMMMMMMNNmmmm/-.`                              \n"
-           "                `-yyyyyyyyyyyyyyy   mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/                                 \n"
-           "                yyyyyyyyyyyyyyyy   MMMMMMMMMMMMMMMNNMMMMMMMMMMMMMMMMMm                                  \n"
-           "                yyyyyyyyyyyyyyy   MMMMMMMMMMMMmm/                   /`                                  \n"
-           "                `-.yyyyyyyyyyy   MMMMMMMMMm      /mmmmMMMMMMMMMmmmmm:`                                  \n"
-           "               yyyyyyyyyyyyyyy  MMMMMMMNm     mMMMMMMMMMMMMMMMMMMMMMMMMMm                               \n"
-           "               yyyyyyyyyyyyyy/  MMMMMMN     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                             \n"
-           "               yyyyyyyyyyyyyy   MMMMMN   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                          \n"
-           "               yyyyyyyyyyyyyy  MMMMMM   mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                         \n"
-           "                `-.yyyyyyyyyy  MMMMM  hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmy                         \n"
-           "                yyyyyyyyyyyyy  MMMM   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMmy                         \n"
-           "                yyyyyyyyyyyyyy  MMMM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                         \n"
-           "                 yyyyyyyyyyyyy  MMMM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/                        \n"
-           "                 yyyyyyyyyyyyyy  MMM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm                        \n"
-           "                 yyyyyyyyyyyyyyy  MM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm                        \n"
-           "                 yyyyyyyyyyyyyyy   M /NMMMMMMMMMMMMMMMMMMMMMMMMMMMNMNMMMMMMMMMMm                        \n"
-           "                  yyyyyyyyyyyyyyy     NMMMMMMMMMMMMMMMMMMMMMMMMMMs    sMMMMMMMMM                        \n"
-           "                   `-.yyyyyyyyyyy      MMMMMMMMMMMMMMMMMMMMMMMMMMs     ``mMMMMMM                        \n"
-           "                   yyyyyyyyyyyyyy      NMMMMMMMMMMMMMNMMMMMMMMMMMMMMy       `/MM                        \n"
-           "                    yyyyyyyyyyyyy      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm    `mMy                       \n"
-           "                    yyyyyyyyyyyyy     /MMMMMMMMMMMMv' 'vMMMMMMMMMMMMMMMMMms   mMv                       \n"
-           "                    yyyyyyyyyyyy      /MMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMm  NN                       \n"
-           "                     yyyyyyyyyyy    yMMMMMMMMMMMMMm     MMMMMMMMMMMMMMMMMMMMN  sm                       \n"
-           "                     yyyyyyyyyyy   mMMMMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMMMN `.`                      \n"
-           "                     yyyyyyyyyy    mMMMMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMMMM                          \n"
-           "                     yyyyyyyyy                        MMMMMMMMMMMMMMMMMMMMMMMM                          \n"
-           "                     yyyyyyyy                        `mMMMMMMMMMMMMMMMMMMMMMMMM                         \n"
-           "                    yyyyy                              `mMMMMMMMMMMMMMMMMMMMMMM.                        \n"
-           "                   yyy                                    `mMMMMMMMMMMMMMMMMMMMN.                       \n"
-           "                  yy                                        `mMMMMMMMMMMMMMMMMMMV                       \n"
-           "                 y                                             `mMNMMMMMMMMMMMMMMV                      \n"
-           "                                                                 `mMMMMMMMMMMMMMMmV                     \n"
-           "                                                                    `mMMMMMMMMMMMMdV                    \n"
-           "                                                                       `mMMMMMMMMMMMV                   \n"
-           "                                                                            `mMMMMMMMV                  \n"
-           "                                                                                mMMMMm                  \n"
-           "                                                                                    VVv                 \n"
-           "                                                                                                        \n"
-           "                                                                                                        \n";
+void guardarNumero(ofstream* archRomanos, ofstream* archLog, int numero, string strEntero) {
+
+    string numeroRomano;
+
+    switch (numero){
+
+        case ERROR_RANGO:
+            escribirEnArchivo(*&archLog, strEntero+" valor fuera de rango");
+            break;
+
+        case ERROR_ENTERO:
+            escribirEnArchivo(*&archLog, strEntero+" valor erroneo");
+            break;
+
+        default:
+            numeroRomano = convertirEnteroARomano(numero);
+            escribirEnArchivo(*&archRomanos, numeroRomano);
+            break;
+    }
+}
+
+void mostrarLogo() {
+    cout <<  "                                                                                                    " << endl;
+    cout <<  "                                            -//::--...   ....__                                     " << endl;
+    cout <<  "                                   .:+syy:  +yyyyyyyyyy  yyyyy+//:-..                               " << endl;
+    cout <<  "                                -/yyyyyyyy: yyyyyyyyyyyy-yyyyyyyyyyyy:-/:-.                         " << endl;
+    cout <<  "                            .y  yyyyyyyyyyy/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy+`./:.                   " << endl;
+    cout <<  "                          .yyyy /syyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy:.               " << endl;
+    cout <<  "                        -+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy-`             " << endl;
+    cout <<  "                     /yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.`                  " << endl;
+    cout <<  "                    yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.`                    " << endl;
+    cout <<  "                   yyyyyyyyyyyyyyyyyyyyyyyy++//::::///+yyyyyyyyyyyyyyyyyyyyy:`                      " << endl;
+    cout <<  "                   yyyyyyyyyyyyyyyyyyyy                        yyyyyyyyyyy+.                        " << endl;
+    cout <<  "                  yyyyyyyyyyyyyyyyyy/   mmmMMMMMMMMMMMMNNNNmdys     yyyyy:.                         " << endl;
+    cout <<  "                 yyyyyyyyyyyyyyyyy   mmMMMMMMMMMMMMMMMMMMMMMMMMMNNmmmm/-.`                          " << endl;
+    cout <<  "                `-yyyyyyyyyyyyyyy   mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/                             " << endl;
+    cout <<  "                yyyyyyyyyyyyyyyy   MMMMMMMMMMMMMMMNNMMMMMMMMMMMMMMMMMm                              " << endl;
+    cout <<  "                yyyyyyyyyyyyyyy   MMMMMMMMMMMMmm/                   /`                              " << endl;
+    cout <<  "                `-.yyyyyyyyyyy   MMMMMMMMMm      /mmmmMMMMMMMMMmmmmm:`                              " << endl;
+    cout <<  "               yyyyyyyyyyyyyyy  MMMMMMMNm     mMMMMMMMMMMMMMMMMMMMMMMMMMm                           " << endl;
+    cout <<  "               yyyyyyyyyyyyyy/  MMMMMMN     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                         " << endl;
+    cout <<  "               yyyyyyyyyyyyyy   MMMMMN   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                      " << endl;
+    cout <<  "               yyyyyyyyyyyyyy  MMMMMM   mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy                     " << endl;
+    cout <<  "                `-.yyyyyyyyyy  MMMMM  hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmy                     " << endl;
+    cout <<  "                yyyyyyyyyyyyy  MMMM   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMmy                     " << endl;
+    cout <<  "                yyyyyyyyyyyyyy  MMMM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                     " << endl;
+    cout <<  "                 yyyyyyyyyyyyyy  MMM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm                    " << endl;
+    cout <<  "                 yyyyyyyyyyyyyyy  MM  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm                    " << endl;
+    cout <<  "                 yyyyyyyyyyyyyyy   M /NMMMMMMMMMMMMMMMMMMMMMMMMMMMNMNMMMMMMMMMMm                    " << endl;
+    cout <<  "                  yyyyyyyyyyyyyyy     NMMMMMMMMMMMMMMMMMMMMMMMMMMs    sMMMMMMMMM                    " << endl;
+    cout <<  "                   `-.yyyyyyyyyyy      MMMMMMMMMMMMMMMMMMMMMMMMMMs     ``mMMMMMM                    " << endl;
+    cout <<  "                   yyyyyyyyyyyyyy      NMMMMMMMMMMMMMNMMMMMMMMMMMMMMy       `/MM                    " << endl;
+    cout <<  "                    yyyyyyyyyyyyy      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm    `mMy                   " << endl;
+    cout <<  "                    yyyyyyyyyyyyy     /MMMMMMMMMMMMv' 'vMMMMMMMMMMMMMMMMMms   mMv                   " << endl;
+    cout <<  "                    yyyyyyyyyyyy      /MMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMm  NN                   " << endl;
+    cout <<  "                     yyyyyyyyyyy    yMMMMMMMMMMMMMm     MMMMMMMMMMMMMMMMMMMMN  sm                   " << endl;
+    cout <<  "                     yyyyyyyyyyy   mMMMMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMMMN `.`                  " << endl;
+    cout <<  "                     yyyyyyyyyy    mMMMMMMMMMMMMMMm    MMMMMMMMMMMMMMMMMMMMMMM                      " << endl;
+    cout <<  "                     yyyyyyyyy                        MMMMMMMMMMMMMMMMMMMMMMMM                      " << endl;
+    cout <<  "                     yyyyyyyy                        `mMMMMMMMMMMMMMMMMMMMMMMMM                     " << endl;
+    cout <<  "                    yyyyy                              `mMMMMMMMMMMMMMMMMMMMMMM.                    " << endl;
+    cout <<  "                   yyy                                    `mMMMMMMMMMMMMMMMMMMMN.                   " << endl;
+    cout <<  "                  yy                                        `mMMMMMMMMMMMMMMMMMMV                   " << endl;
+    cout <<  "                 y                                             `mMNMMMMMMMMMMMMMMV                  " << endl;
+    cout <<  "                                                                 `mMMMMMMMMMMMMMMmV                 " << endl;
+    cout <<  "                                                                    `mMMMMMMMMMMMMdV                " << endl;
+    cout <<  "                                                                       `mMMMMMMMMMMMV               " << endl;
+    cout <<  "                                                                            `mMMMMMMMV              " << endl;
+    cout <<  "                                                                                mMMMMm              " << endl;
+    cout <<  "                                                                                    VVv             " << endl;
 }

@@ -17,12 +17,12 @@ fstream
 -
 iostream
 -
-chrono
--
 
 C:/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/validaciones.h
 sstream
 -
 algorithm
+-
+iostream
 -
 
