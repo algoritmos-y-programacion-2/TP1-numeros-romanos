@@ -19,10 +19,14 @@ void escribirEnArchivo(ofstream* archivo, string frase);
 string convertirEnteroARomano(int entero);
 /*
  * PRE: -
- * POST: Devuelve el numero en sistema romano
+ * POST: Devuelve el numero recibido en sistema romano
  */
 
 void guardarNumero(ofstream* archRomanos, ofstream* archLog, int numero, string strNumeroEntero);
+/*
+ * PRE: Los archivos deben estar abiertos correctamente
+ * POST: Guarda el numero en el archivo correspondiente
+ */
 
 void mostrarLogo();
 /*
