@@ -7,7 +7,6 @@
 
 #include <sstream>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -28,7 +27,7 @@ int validarEntero(string n);
  * de la libreria <algorithm>
  * Esta funcion recibe como parametros el inicio de la iteracion, el final
  * y la condicion para comparar
- * Va verificando uno por uno si cumplen con la condicion. Si todos cumplen devuelve true, sino false
+ * Va verificando uno por uno si se cumple con la condicion. Si todos cumplen devuelve true, sino false
  */
 
 int validarNumero(string n);
