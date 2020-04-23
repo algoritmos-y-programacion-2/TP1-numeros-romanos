@@ -28,11 +28,11 @@ int main() {
 
     if(!archArabes.fail()) {
 
-        string strNumeroEntero;
-        int numEnteroValidado;
-
         ofstream archRomanos(ARCHIVO_ROMANOS);
         ofstream archLog(ARCHIVO_LOG);
+
+        string strNumeroEntero;
+        int numEnteroValidado;
 
         while(archArabes >> strNumeroEntero) {
             numEnteroValidado = validarNumero(strNumeroEntero);
