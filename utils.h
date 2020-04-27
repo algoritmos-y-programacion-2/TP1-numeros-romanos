@@ -1,6 +1,8 @@
-//
-// Created by Valentina on 18/4/2020.
-//
+/*
+ * 75.41/95.15: Algoritmos y Programacion II - Catedra Juarez - 1°C 2020
+ * Trabajo Practico Individual N1: De los arabes a los romanos
+ * Hecho por Valentina Varela Rodriguez - 105374
+ */
 
 #ifndef TRABAJOPRACTICO1_UTILS_H
 #define TRABAJOPRACTICO1_UTILS_H
