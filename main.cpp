@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
         }
         cout << "\nEl nombre del archivo '"<< argumentos << "' no es valido. Recorda que si el nombre tiene espacios,"
                                                         " debe que estar todo entre comillas." << endl;
-        cout << "Se utilizara 'valores.txt' como nombre del archivo " << endl;
+        cout << "Se utilizara 'valores.txt' como nombre del archivo.\n" << endl;
     }
     ifstream archArabes(archivoEnteros);
 
@@ -43,12 +43,12 @@ int main(int argc, char* argv[]) {
             guardarNumero(&archRomanos, &archLog, numEnteroValidado, strNumeroEntero);
         }
 
-        cout << "Los datos se han exportado de manera satisfactoria a 'romanos.txt' y 'log.txt.'" << endl;
+        cout << "Los datos se han exportado de manera satisfactoria a 'romanos.txt' y 'log.txt.'\n" << endl;
         archRomanos.close();
         archLog.close();
 
     } else cout << "No se encontro el archivo '" << archivoEnteros << "'.\nPor favor asegurese de que "
-                   "se encuentre en el mismo directorio que el ejecutable.";
+                   "se encuentre en el mismo directorio que el ejecutable.\n";
 
     archArabes.close();
     return 0;
