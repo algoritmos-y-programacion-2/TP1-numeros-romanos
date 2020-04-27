@@ -10,8 +10,6 @@
 const string ARCHIVO_ROMANOS = "romanos.txt";
 const string ARCHIVO_LOG = "log.txt";
 
-void nombreArchivo(string* archivoEnteros)
-
 int main(int argc, char* argv[]) {
 
     mostrarLogo();
