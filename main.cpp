@@ -13,7 +13,6 @@ const string ARCHIVO_LOG = "log.txt";
 int main(int argc, char* argv[]) {
 
     mostrarLogo();
-
     string archivoEnteros = "valores.txt";
 
     if (argc == 2) {
@@ -21,16 +20,14 @@ int main(int argc, char* argv[]) {
     }
     else if (argc > 2) {
         string argumentos;
-        for (int i = 1; i < argc; i++){
-            argumentos += argv[i];
-            argumentos += " ";
-        }
+        for (int i = 1; i < argc; i++)
+            argumentos += argv[i]; argumentos += " ";
         cout << "\nEl nombre del archivo '"<< argumentos << "' no es valido. Recorda que si el nombre tiene espacios,"
                                                         " debe que estar todo entre comillas." << endl;
-        cout << "Se utilizara 'valores.txt' como nombre del archivo.\n" << endl;
+        cout << "AVISO: Se utilizara 'valores.txt' como nombre del archivo.\n" << endl;
     }
-    ifstream archArabes(archivoEnteros);
 
+    ifstream archArabes(archivoEnteros);
     if(!archArabes.fail()) {
 
         ofstream archRomanos(ARCHIVO_ROMANOS);

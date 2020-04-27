@@ -9,6 +9,11 @@
 
 using namespace std;
 
+const int RANGO_MIN = 1;
+const int RANGO_MAX = 3000;
+const int ERROR_ENTERO = -1;
+const int ERROR_RANGO = -2;
+
 bool validarRango(int n);
 /*
  * PRE: n tiene que ser distinto de vacio

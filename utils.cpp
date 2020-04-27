@@ -45,12 +45,10 @@ void guardarNumero(ofstream* archRomanos, ofstream* archLog, int numero, string 
 
     switch (numero){
 
-        case ERROR_RANGO:
-            escribirEnArchivo(*&archLog, strEntero+" valor fuera de rango");
+        case ERROR_RANGO: escribirEnArchivo(*&archLog, strEntero+" valor fuera de rango");
             break;
 
-        case ERROR_ENTERO:
-            escribirEnArchivo(*&archLog, strEntero+" valor erroneo");
+        case ERROR_ENTERO: escribirEnArchivo(*&archLog, strEntero+" valor erroneo");
             break;
 
         default:

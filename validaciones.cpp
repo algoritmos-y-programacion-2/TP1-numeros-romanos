@@ -6,11 +6,8 @@
 #include <regex>
 #include <cstdlib>
 
-const int ERROR_ENTERO = -1;
-const int ERROR_RANGO = -2;
-
 bool validarRango(int n) {
-    return ((n > 0) && (n < 3001));
+    return ((n >= RANGO_MIN) && (n <= RANGO_MAX));
 }
 
 int validarEnteroRegex(string num) {
@@ -18,10 +15,10 @@ int validarEnteroRegex(string num) {
     int esEntero;
     regex entero("^(\\+|-)?[[:digit:]]+");
 
-    /* Viendo de a partes la expresion regular: ^(\+|-)?[[:digit:]]+
+    /* Analizando de a partes la expresion regular: ^(\+|-)?[[:digit:]]+
      * ^ indica que la siguiente coincidencia tiene que buscarse al inicio
      * (\+|-) verifica si es un '+' o un '-'
-     * ? indica que la coincidencia es opcional (en este caso puede o no estar el '+'/'-')
+     * ? indica que la coincidencia previa es opcional (en este caso puede o no estar el '+'/'-')
      * [[:digit:]] verifica si el caracter es un numero [0-9]
      * + lo hace tantas veces como sea posible en el string
      */
