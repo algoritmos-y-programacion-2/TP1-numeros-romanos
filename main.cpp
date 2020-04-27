@@ -10,11 +10,16 @@
 const string ARCHIVO_ROMANOS = "romanos.txt";
 const string ARCHIVO_LOG = "log.txt";
 
+void nombreArchivo(string* archivoEnteros)
+
 int main(int argc, char* argv[]) {
-    string archivo_enteros = "valores.txt";
+
+    mostrarLogo();
+
+    string archivoEnteros = "valores.txt";
 
     if (argc == 2) {
-        archivo_enteros = argv[1];
+        archivoEnteros = argv[1];
     }
     else if (argc > 2) {
         string argumentos;
@@ -26,8 +31,7 @@ int main(int argc, char* argv[]) {
                                                         " debe que estar todo entre comillas." << endl;
         cout << "Se utilizara 'valores.txt' como nombre del archivo " << endl;
     }
-    mostrarLogo();
-    ifstream archArabes(archivo_enteros);
+    ifstream archArabes(archivoEnteros);
 
     if(!archArabes.fail()) {
 
@@ -45,7 +49,7 @@ int main(int argc, char* argv[]) {
         archRomanos.close();
         archLog.close();
 
-    } else cout << "No se encontro el archivo '" << archivo_enteros << "'.\nPor favor asegurese de que "
+    } else cout << "No se encontro el archivo '" << archivoEnteros << "'.\nPor favor asegurese de que "
                    "se encuentre en el mismo directorio que el ejecutable.";
 
     archArabes.close();
