@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1
+# Install script for directory: /mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

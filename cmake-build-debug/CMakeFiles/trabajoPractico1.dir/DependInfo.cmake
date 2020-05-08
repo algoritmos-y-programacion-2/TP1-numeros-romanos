@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/main.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/main.cpp.o"
-  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/utils.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/utils.cpp.o"
-  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/validaciones.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/validaciones.cpp.o"
+  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/main.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/main.cpp.o"
+  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/utils.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/utils.cpp.o"
+  "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/validaciones.cpp" "/mnt/c/Users/Valentina/Documents/2020/Primer cuatrimestre/Algoritmos y Programacion II/C++/TP1/trabajoPractico1/cmake-build-debug/CMakeFiles/trabajoPractico1.dir/validaciones.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

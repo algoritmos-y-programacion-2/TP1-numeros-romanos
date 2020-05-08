@@ -1,0 +1,11 @@
+a valor erroneo
+hola valor erroneo
+hola1 valor erroneo
+a1 valor erroneo
+1a valor erroneo
+1a6 valor erroneo
+-10 valor fuera de rango
+-a valor erroneo
+0 valor fuera de rango
+4444 valor fuera de rango
+9999 valor fuera de rango
